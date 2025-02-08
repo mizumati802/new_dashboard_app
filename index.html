@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Grid with Buttons</title>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('Service Worker registered'))
+        .catch(err => console.error('Service Worker registration failed:', err));
+    }
+  </script>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f4f4f4;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      width: 90%;
+      max-width: 800px;
+    }
+
+    .grid-item {
+      aspect-ratio: 1 / 1;
+      /* Makes the grid items perfect squares */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .button {
+      width: 100%;
+      height: 100%;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .button:hover {
+      transform: scale(1.05);
+    }
+
+    .red {
+      background-color: #d45555;
+    }
+
+    .blue {
+      background-color: #568ecc;
+    }
+
+    .green {
+      background-color: #56cc6d;
+    }
+
+    .yellow {
+      background-color: #ccbf56;
+    }
+
+    .purple {
+      background-color: #9256cc;
+    }
+
+    .orange {
+      background-color: #cc7a56;
+    }
+
+    .dashboard_footer_button {
+      position: fixed;
+      bottom: 100px;
+      /* 画面下からの距離 */
+      right: 10px;
+      /* 画面右からの距離 */
+      width: 80px;
+      height: 80px;
+      background-color: #6b90ff;
+      border-radius: 50%;
+      /* ボタンを丸くする */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      /* 見た目を少し立体的に */
+    }
+
+    .dashboard_footer_button button {
+      background: none;
+      border: none;
+      color: #333;
+      font-size: 12pt;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+
+    .mercari_footer_button {
+      position: fixed;
+      bottom: 10px;
+      /* 画面下からの距離 */
+      right: 10px;
+      /* 画面右からの距離 */
+      width: 80px;
+      height: 80px;
+      background-color: #ff6b6b;
+      border-radius: 50%;
+      /* ボタンを丸くする */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      /* 見た目を少し立体的に */
+    }
+
+    .mercari_footer_button button {
+      background: none;
+      border: none;
+      color: #333;
+      font-size: 18pt;
+      font-weight: 800;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="grid">
+    <div class="grid-item">
+      <button class="button red"
+        onclick="window.open('https://database-app-6ms4.onrender.com/template', '_blank')">テンプレ</button>
+    </div>
+    <div class="grid-item">
+      <button class="button blue"
+        onclick="window.open('https://mizumati802.github.io/title_create_app/', '_blank')">タイトル</button>
+    </div>
+    <div class="grid-item">
+      <button class="button green"
+        onclick="window.open('brave://open-url?url=https://mizumati802.github.io/img_akamaru/', '_blank')">赤丸</button>
+    </div>
+    <div class="grid-item">
+      <button class="button yellow"
+        onclick="window.open('brave://open-url?url=https://mizumati802.github.io/img_merge_dataset/', '_blank')">画像統合</button>
+    </div>
+    <div class="grid-item">
+      <button class="button purple"
+        onclick="window.open('https://mizumati802.github.io/title_create_app/description', '_blank')">説明文</button>
+    </div>
+  </div>
+  <!-- テンプレート表示コンテナ -->
+  <div id="templates-container"></div>
+  <div class="dashboard_footer_button">
+    <button onclick="footer_dashboardbuttonopenWindow()" id="dashboard_footer_button">ダッシュ</button>
+  </div>
+  <div class="mercari_footer_button">
+    <button onclick="footer_mercariopenWindow()" id="mercari_footer_button">メル</button>
+  </div>
+
+  <script>
+    //mercaributton
+    function footer_mercariopenWindow() {
+      const externalWindow = window.open("https://www.mercari.com/jp/", "_blank");
+      setTimeout(() => {
+        if (externalWindow) {
+          externalWindow.close();
+        } else {
+          console.log("ウィンドウを開けませんでした（ポップアップがブロックされた可能性があります）。");
+        }
+      }, 100);
+    }
+    //titlebutton
+    function footer_dashboardbuttonopenWindow() {
+      window.open('https://database-app-6ms4.onrender.com/dashboard', '_blank');
+    }
+  </script>
+</body>
+
+</html>

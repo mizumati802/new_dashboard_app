@@ -139,32 +139,66 @@
       font-weight: 800;
       cursor: pointer;
     }
+
+
+    .search_Section {
+      top: 470px;
+    }
+
+    .search_Section #searchKeyword,
+    .search_Section #searchbutton {
+      font-size: 18pt;
+    }
+
+    .search_Section #searchKeyword {
+      width: 180px;
+    }
+
+    #searchKeyword::placeholder {
+      color: #dddddd;
+    }
+
+    .search_Section #searchbutton {
+      margin-left: 10px;
+    }
   </style>
 </head>
 
 <body>
   <div class="grid">
     <div class="grid-item">
-      <button class="button red"
-        onclick="window.open('https://database-app-6ms4.onrender.com/template', '_blank')">テンプレ</button>
+      <a href="//youtube.com" target="_blank" class="button">
+        <button class="button red" id="side_btn-1">yu</button>
+      </a>
+    </div>
+
+    <div class="grid-item">
+      <button class="button green" id="side_btn-2" onclick="gptopenWindow()">Gp</button>
     </div>
     <div class="grid-item">
-      <button class="button blue"
-        onclick="window.open('https://mizumati802.github.io/title_create_app/', '_blank')">タイトル</button>
+      <a href="https://database-app-6ms4.onrender.com/memo/" target="_blank" class="button">
+        <button class="button yellow" id="side_btn-3">No</button>
+      </a>
     </div>
     <div class="grid-item">
-      <button class="button green"
-        onclick="window.open('brave://open-url?url=https://mizumati802.github.io/img_akamaru/', '_blank')">赤丸</button>
+      <a href="https://mizumati802.github.io/freeemarket_app/" target="_blank" class="button">
+        <button class="button purple" id="side_btn-3">テンプレ</button>
+      </a>
     </div>
     <div class="grid-item">
-      <button class="button yellow"
-        onclick="window.open('brave://open-url?url=https://mizumati802.github.io/img_merge_dataset/', '_blank')">画像統合</button>
-    </div>
-    <div class="grid-item">
-      <button class="button purple"
-        onclick="window.open('https://mizumati802.github.io/title_create_app/description', '_blank')">説明文</button>
+      <a href="https://database-app-6ms4.onrender.com/sale_item" target="_blank" class="button">
+        <button class="button orange" id="side_btn-3">仕入れ</button>
+      </a>
     </div>
   </div>
+
+  <!-- search Button
+  <div class="search_Section">
+    <input type="text" id="searchKeyword" placeholder="keyword">
+    <button onclick="handleSearch()" id="searchbutton">検索</button>
+  </div>
+-->
+
   <!-- テンプレート表示コンテナ -->
   <div id="templates-container"></div>
   <div class="dashboard_footer_button">
@@ -190,6 +224,49 @@
     function footer_dashboardbuttonopenWindow() {
       window.open('https://database-app-6ms4.onrender.com/dashboard', '_blank');
     }
+
+    //gptbutton
+    function gptopenWindow() {
+      const url = "chatgpt://example"; // chatgpt:// スキーム付きのURL
+      window.location.href = url;
+      setTimeout(() => {
+        window.close();
+      }, 500);
+    }
+
+    //検索
+
+    function openBraveSearch(keyword) {
+      // URLかキーワードかを判定
+      const isUrl = keyword.includes("https") || keyword.includes("http");
+
+      if (isUrl) {
+        // 入力がURLの場合、そのまま開く
+        const directUrl = keyword.startsWith("http") ? keyword : `https://${keyword}`;
+        const fullUrl = `brave://open-url?url=${encodeURIComponent(directUrl)}`;
+        window.location.href = fullUrl;
+      } else {
+        // 入力がキーワードの場合、Google検索を実行
+        const baseUrl = "brave://open-url?url=https://www.google.com/search?q=";
+        const searchUrl = `${baseUrl}${encodeURIComponent(keyword)}`;
+        window.location.href = searchUrl;
+      }
+
+      setTimeout(() => {
+        window.close(); // 必要に応じてウィンドウを閉じる
+      }, 500);
+    }
+
+    function handleSearch() {
+      const inputField = document.getElementById("searchKeyword");
+      const keyword = inputField.value.trim();
+      if (keyword) {
+        openBraveSearch(keyword); // キーワードがある場合のみ実行
+      } else {
+        alert("キーワードを入力してください。");
+      }
+    }
+
   </script>
 </body>
 

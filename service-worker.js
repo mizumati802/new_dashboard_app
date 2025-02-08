@@ -1,9 +1,9 @@
-const CACHE_NAME = 'freemarket-cache-v1';
+const CACHE_NAME = 'new-dashboard-cache-v1';
 const urlsToCache = [
-  '/freeemarket_app/index.html',
-  '/freeemarket_app/manifest.json',
-  '/freeemarket_app/icon-192x192.png',
-  '/freeemarket_app/icon-512x512.png'
+  '/new_dashboard_app/index.html',
+  '/new_dashboard_app/manifest.json',
+  '/new_dashboard_app/icon-192x192.png',
+  '/new_dashboard_app/icon-512x512.png'
 ];
 
 self.addEventListener('install', event => {

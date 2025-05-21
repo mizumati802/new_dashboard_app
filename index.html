@@ -65,6 +65,36 @@
       transform: scale(1.05);
     }
 
+    /* 7色循環式の色定義 */
+    .color-1 {
+      background-color: #d45555; /* 赤 */
+    }
+
+    .color-2 {
+      background-color: #cc7a56; /* オレンジ */
+    }
+
+    .color-3 {
+      background-color: #ccbf56; /* 黄色 */
+    }
+
+    .color-4 {
+      background-color: #56cc6d; /* 緑 */
+    }
+
+    .color-5 {
+      background-color: #56ccbf; /* ティール */
+    }
+
+    .color-6 {
+      background-color: #568ecc; /* 青 */
+    }
+
+    .color-7 {
+      background-color: #9256cc; /* 紫 */
+    }
+    
+    /* 旧クラス名の互換性のため残す */
     .red {
       background-color: #d45555;
     }
@@ -171,32 +201,28 @@
 <body>
   <div class="grid">
     <div class="grid-item">
-      <a href="//youtube.com" target="_blank" class="button">
-        <button class="button red" id="side_btn-1">YOUTUBE</button>
-      </a>
-    </div>
-
-    <div class="grid-item">
-      <button class="button green" id="side_btn-2" onclick="gptopenWindow()">GPT</button>
-    </div>
-    <div class="grid-item">
       <a href="https://database-app-6ms4.onrender.com/memo/" target="_blank" class="button">
-        <button class="button yellow" id="side_btn-3">ノート</button>
+        <button class="button color-cycle" id="side_btn-1">ノート</button>
       </a>
     </div>
     <div class="grid-item">
-      <a href="https://database-app-6ms4.onrender.com/sale_item" target="_blank" class="button">
-        <button class="button purple" id="side_btn-3">仕入れ</button>
+      <a href="https://database-app-6ms4.onrender.com/" target="_blank" class="button">
+        <button class="button color-cycle" id="side_btn-2">商品管理</button>
       </a>
     </div>
     <div class="grid-item">
-      <a href="https://database-app-6ms4.onrender.com/research" target="_blank" class="button">
-        <button class="button red" id="side_btn-3">画像付きメモ_リサーチ用</button>
+      <a href="https://database-app-6ms4.onrender.com/product_search" target="_blank" class="button">
+        <button class="button color-cycle" id="side_btn-3">商品検索</button>
       </a>
     </div>
     <div class="grid-item">
-      <a href="https://database-app-6ms4.onrender.com/img_storage" target="_blank" class="button">
-        <button class="button green" id="side_btn-3">画像共有</button>
+      <a href="https://database-app-6ms4.onrender.com/product_register" target="_blank" class="button">
+        <button class="button color-cycle" id="side_btn-4">商品登録</button>
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="https://database-app-6ms4.onrender.com/lists" target="_blank" class="button">
+        <button class="button color-cycle" id="side_btn-5">定期購入lists</button>
       </a>
     </div>
   </div>
@@ -246,7 +272,6 @@
     }
 
     //検索
-
     function openBraveSearch(keyword) {
       // URLかキーワードかを判定
       const isUrl = keyword.includes("https") || keyword.includes("http");
@@ -278,6 +303,21 @@
       }
     }
 
+    // 7色循環式のカラー適用関数
+    function applyColorCycle() {
+      const colorCycleElements = document.querySelectorAll('.color-cycle');
+      colorCycleElements.forEach((element, index) => {
+        // 7で割った余りを計算して、1〜7の範囲の値を取得
+        const colorIndex = (index % 7) + 1;
+        // 既存の色クラスを削除
+        element.classList.remove('color-1', 'color-2', 'color-3', 'color-4', 'color-5', 'color-6', 'color-7');
+        // 新しい色クラスを追加
+        element.classList.add(`color-${colorIndex}`);
+      });
+    }
+
+    // ページ読み込み時に色循環を適用
+    document.addEventListener('DOMContentLoaded', applyColorCycle);
   </script>
 </body>
 

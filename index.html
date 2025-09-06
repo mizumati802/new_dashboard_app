@@ -21,7 +21,8 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      background-color: #f4f4f4;
+      background-color: #1a1a1a;
+      color: #e0e0e0;
     }
 
     a {
@@ -42,7 +43,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
       border-radius: 8px;
       overflow: hidden;
     }
@@ -65,58 +66,58 @@
       transform: scale(1.05);
     }
 
-    /* 7色循環式の色定義 */
+    /* 7色循環式の色定義（ダークモード用） */
     .color-1 {
-      background-color: #d45555; /* 赤 */
+      background-color: #a03333; /* 暗い赤 */
     }
 
     .color-2 {
-      background-color: #cc7a56; /* オレンジ */
+      background-color: #a65533; /* 暗いオレンジ */
     }
 
     .color-3 {
-      background-color: #ccbf56; /* 黄色 */
+      background-color: #a69533; /* 暗い黄色 */
     }
 
     .color-4 {
-      background-color: #56cc6d; /* 緑 */
+      background-color: #33a044; /* 暗い緑 */
     }
 
     .color-5 {
-      background-color: #56ccbf; /* ティール */
+      background-color: #33a695; /* 暗いティール */
     }
 
     .color-6 {
-      background-color: #568ecc; /* 青 */
+      background-color: #3366a6; /* 暗い青 */
     }
 
     .color-7 {
-      background-color: #9256cc; /* 紫 */
+      background-color: #6633a6; /* 暗い紫 */
     }
     
-    /* 旧クラス名の互換性のため残す */
+    /* 旧クラス名の互換性のため残す（ダークモード用） */
     .red {
-      background-color: #d45555;
+      background-color: #a03333;
     }
 
     .blue {
-      background-color: #568ecc;
+      background-color: #3366a6;
     }
 
     .green {
-      background-color: #56cc6d;
+      background-color: #33a044;
     }
 
     .yellow {
-      background-color: #ccbf56;
+      background-color: #a69533;
     }
 
     .purple {
-      background-color: #9256cc;
+      background-color: #6633a6;
     }
 
     .orange {
-      background-color: #cc7a56;
+      background-color: #a65533;
     }
 
     .dashboard_footer_button {
@@ -127,13 +128,13 @@
       /* 画面右からの距離 */
       width: 80px;
       height: 80px;
-      background-color: #6b90ff;
+      background-color: #4477ff;
       border-radius: 50%;
       /* ボタンを丸くする */
       display: flex;
       justify-content: center;
       align-items: center;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
       /* 見た目を少し立体的に */
     }
 
@@ -155,13 +156,13 @@
       /* 画面右からの距離 */
       width: 80px;
       height: 80px;
-      background-color: #ff6b6b;
+      background-color: #ff4444;
       border-radius: 50%;
       /* ボタンを丸くする */
       display: flex;
       justify-content: center;
       align-items: center;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
       /* 見た目を少し立体的に */
     }
 
@@ -195,6 +196,7 @@
     .search_Section #searchbutton {
       margin-left: 10px;
     }
+
   </style>
 </head>
 
@@ -365,6 +367,7 @@
 
     // ページ読み込み時に色循環を適用
     document.addEventListener('DOMContentLoaded', applyColorCycle);
+
   </script>
 </body>
 

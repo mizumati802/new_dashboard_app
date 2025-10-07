@@ -1,11 +1,10 @@
 {
-  "name": "new_dashboard",
-  "short_name": "new_dashboard",
-  "start_url": "/new_dashboard_app/index.html",
-  "scope": "/new_dashboard_app/",
+  "name": "Dashboard",
+  "short_name": "Dashboard",
+  "start_url": "./",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#ffffff",
+  "background_color": "#1a1a1a",
+  "theme_color": "#1a1a1a",
   "icons": [
     {
       "src": "icon-192x192.png",
